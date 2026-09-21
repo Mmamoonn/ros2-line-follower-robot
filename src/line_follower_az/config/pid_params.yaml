@@ -1,0 +1,47 @@
+# config/pid_params.yaml
+#
+# Tune these live without rebuilding, e.g.:
+#   ros2 param set /pid_controller_node Kp 0.9
+#
+# wheel_radius / wheel_separation MUST match the numbers baked into
+# description/line_follower.urdf (gz-sim-diff-drive-system plugin),
+# otherwise /wheel_velocity will not match what the simulated robot
+# is actually doing.
+
+pid_controller_node:
+  ros__parameters:
+    Kp: 0.8
+    Ki: 0.02
+    Kd: 0.15
+    base_linear_speed: 0.12      # forward speed in m/s when the line is centered
+    min_linear_speed: 0.04        # forward speed in m/s when the error is large (slow down in corners)
+    max_angular_z: 2.5             # rad/s clamp on the steering command
+    integral_clamp: 1.0            # anti-windup clamp on the accumulated integral term
+    error_topic: "/line_sensor"
+    cmd_vel_topic: "/cmd_vel"
+
+motor_driver_node:
+  ros__parameters:
+    wheel_radius: 0.033
+    wheel_separation: 0.15
+    max_wheel_speed: 12.0          # rad/s clamp, just to keep numbers sane
+    cmd_vel_topic: "/cmd_vel"
+    wheel_velocity_topic: "/wheel_velocity"
+
+sensor_node:
+  ros__parameters:
+    camera_topic: "/camera/image_raw"
+    line_sensor_topic: "/line_sensor"
+    roi_top_fraction: 0.55         # only look at the bottom 45% of the image (closest to the robot)
+    binary_threshold: 90            # pixel intensity below this counts as "line" (0-255 grayscale)
+    num_zones: 5                    # mimics the original 5-channel IR sensor array
+    publish_rate_hz: 30.0
+
+logger_node:
+  ros__parameters:
+    log_directory: "~/ros2_az_logs"
+    log_rate_hz: 10.0
+
+monitor_node:
+  ros__parameters:
+    print_rate_hz: 1.0

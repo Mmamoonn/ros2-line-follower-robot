@@ -1,0 +1,31 @@
+# config/bridge_config.yaml
+#
+# Used by ros_gz_bridge's parameter_bridge node (see launch/simulation.launch.py).
+# If `gz topic -l` on your machine shows different topic names than the ones
+# below (this can happen across minor gz-sim versions), edit the gz_topic_name
+# fields here to match -- this is one of the first things worth checking if
+# the bridge comes up but no data flows.
+
+- ros_topic_name: "/cmd_vel"
+  gz_topic_name: "/model/line_follower/cmd_vel"
+  ros_type_name: "geometry_msgs/msg/Twist"
+  gz_type_name: "gz.msgs.Twist"
+  direction: ROS_TO_GZ
+
+- ros_topic_name: "/odom"
+  gz_topic_name: "/model/line_follower/odometry"
+  ros_type_name: "nav_msgs/msg/Odometry"
+  gz_type_name: "gz.msgs.Odometry"
+  direction: GZ_TO_ROS
+
+- ros_topic_name: "/camera/image_raw"
+  gz_topic_name: "/camera"
+  ros_type_name: "sensor_msgs/msg/Image"
+  gz_type_name: "gz.msgs.Image"
+  direction: GZ_TO_ROS
+
+- ros_topic_name: "/clock"
+  gz_topic_name: "/clock"
+  ros_type_name: "rosgraph_msgs/msg/Clock"
+  gz_type_name: "gz.msgs.Clock"
+  direction: GZ_TO_ROS
