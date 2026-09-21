@@ -22,7 +22,7 @@ clean:
 
 # Simulation
 # Launches Simulation, Nodes, and Telemetry in a single split Tilix window.
-sim: build
+sim: clean build
 	@echo "Launching simulation..."
 	tilix --action=app-new-session -e bash -c "source $(ROS_SETUP) && source $(WS_SETUP) && ros2 launch line_follower_az simulation.launch.py; exec bash" \
 	--action=session-add-right -e bash -c "source $(ROS_SETUP) && source $(WS_SETUP) && sleep 3 && ros2 launch line_follower_az nodes.launch.py; exec bash" \
