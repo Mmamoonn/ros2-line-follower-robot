@@ -1,0 +1,19 @@
+build/
+install/
+log/
+.colcon_*
+
+# Python Python caches & artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+.pytest_cache/
+
+# OS / Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
