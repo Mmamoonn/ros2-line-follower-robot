@@ -2,9 +2,9 @@
 
 ## System Specifications
 * **Operating System:** Ubuntu 24.04 LTS
-* **Middleware:** ROS 2 Jazzy
+* **Middleware:** ROS 2 Jazzy Jalisco
 * **Terminal Emulator:** Tilix (Required for Make automation)
-* **Simulation Environment:** Gazebo (Classic or Ignition, based on configuration)
+* **Simulation Environment:** Gazebo Harmonic (Default for ROS 2 Jazzy)
 
 ## Python Dependencies
 The Python nodes utilize standard ROS 2 libraries. Ensure you have the following packages installed:
@@ -19,6 +19,6 @@ To install the system-level dependencies required for this project:
 
 ```bash
 sudo apt update
-sudo apt install ros-humble-gazebo-ros-pkgs ros-humble-ros-gz tilix
+sudo apt install ros-jazzy-ros-gz tilix rqt ros-jazzy-rqt-reconfigure
 rosdep update
 rosdep install --from-paths src -y --ignore-src

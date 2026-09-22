@@ -87,9 +87,9 @@ See [`REQUIREMENTS.md`](REQUIREMENTS.md) for the complete dependency list, suppo
 
 ### Core Environment
 
-* **OS:** At least - Ubuntu 22.04 LTS
-* **ROS 2:** Humble Hawksbill Or Jazzy
-* **Simulation:** Gazebo Classic / Gazebo Sim, depending on the configured ROS-Gazebo integration
+* **OS:** Ubuntu 24.04 LTS
+* **ROS 2:** Jazzy Jalisco
+* **Simulation:** Gazebo Harmonic (Default for ROS 2 Jazzy)
 * **Programming Language:** Python 3
 * **Terminal Automation:** Tilix
 
@@ -99,13 +99,11 @@ See [`REQUIREMENTS.md`](REQUIREMENTS.md) for the complete dependency list, suppo
 sudo apt update
 
 sudo apt install \
-    ros-humble-gazebo-ros-pkgs \
-    ros-humble-ros-gz \
+    ros-jazzy-ros-gz \
     tilix \
     rqt \
-    ros-humble-rqt-reconfigure
+    ros-jazzy-rqt-reconfigure
 ```
-
 ---
 
 ## 🛠️ Installation & Build
